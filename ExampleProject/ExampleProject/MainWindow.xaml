@@ -1,0 +1,26 @@
+﻿<Window x:Class="ExampleProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExampleProject"
+        xmlns:res="clr-namespace:ExampleProject.Resouces"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="450" MinWidth="800"
+        >
+    <DockPanel LastChildFill="False">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="メニュー1(_A)">
+                <MenuItem Header="{x:Static res:Strings.MenuText}" Click="MenuItem_Click"/>
+                <MenuItem Header="メニュー 1-2"/>
+                <MenuItem Header="メニュー 1-3">
+                    <MenuItem Header="メニュー 1-3-1"/>
+                    <MenuItem Header="メニュー 1-3-2"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="メニュー2(_B)"/>
+        </Menu>
+        <Button Click="Button_Click" DockPanel.Dock="Left"  Content="{x:Static res:Strings.ButtonText}" />
+        <Button Click="Button_Click" DockPanel.Dock="Left"  Content="{x:Static res:Strings.ButtonText}" />
+    </DockPanel>
+</Window>
