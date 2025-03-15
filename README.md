@@ -122,3 +122,7 @@ https://zenn.dev/noburo/articles/cc45cc3c65cac1
 
 # theme
 https://qiita.com/norimatsu_yusuke/items/3a7a22f0d852d99e18cc
+
+# 親要素の範囲外に出さない
+
+ClipToBoundsをTrueにする
