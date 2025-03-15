@@ -6,14 +6,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Assets/app.ico</ApplicationIcon>
+    <ApplicationIcon>Assets/Icon/app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="src\**" />
-    <EmbeddedResource Remove="src\**" />
-    <None Remove="src\**" />
-    <Page Remove="src\**" />
+    <None Remove="Assets\Fonts\FZPahyamarukana.otf" />
+    <None Remove="Assets\Fonts\NotoSansJP-Black.ttf" />
+    <None Remove="Assets\Fonts\NotoSansJP-Bold.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +28,18 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Image\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Fonts\FZPahyamarukana.otf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Fonts\NotoSansJP-Black.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansJP-Bold.ttf" />
   </ItemGroup>
 
 </Project>

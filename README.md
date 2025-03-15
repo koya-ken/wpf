@@ -114,3 +114,11 @@ resxを作成してXamlから参照するのがよさそうだが癖がある
 リソースファイルのプロパティからカスタムツールを  
 PublicResXFileCodeGeneratorに設定しないとエラーになる。  
 よくわからない
+
+# フォントの指定
+https://learn.microsoft.com/ja-jp/dotnet/desktop/wpf/app-development/pack-uris-in-wpf?view=netframeworkdesktop-4.8
+https://zenn.dev/noburo/articles/cc45cc3c65cac1
+
+
+# theme
+https://qiita.com/norimatsu_yusuke/items/3a7a22f0d852d99e18cc
