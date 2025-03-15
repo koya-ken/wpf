@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="450" MinWidth="800"
         >
-    <DockPanel LastChildFill="False">
+    <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="メニュー1(_A)">
                 <MenuItem Header="{x:Static res:Strings.MenuText}" Click="MenuItem_Click"/>
@@ -22,5 +22,11 @@
         </Menu>
         <Button Click="Button_Click" DockPanel.Dock="Left"  Content="{x:Static res:Strings.ButtonText}" />
         <Button Click="Button_Click" DockPanel.Dock="Left"  Content="{x:Static res:Strings.ButtonText}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Canvas ClipToBounds="True"  x:Name="MainCanvas" Background="Lime" Grid.Column="0"></Canvas>
+        </Grid>
     </DockPanel>
 </Window>
