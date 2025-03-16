@@ -4,17 +4,138 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ExampleProject.View"
+            xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             MouseEnter="OnMouseEnter"
              MouseMove="OnMouseMove"
              MouseLeftButtonDown="OnMouseDown"
              MouseUp="OnMouseUp"
              MouseLeave="OnMouseLeave"
+             Loaded="OnLoaded"
+             Unloaded="OnUnloaded"
+             d:Background="#FF003333"
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- コーナーのサイズ -->
+        <system:Double x:Key="CornerSize">14</system:Double>
+
+        <!-- コーナーのオフセット（中心配置） -->
+        <system:Double x:Key="CornerOffset">-7</system:Double>
+    </UserControl.Resources>
     <!-- RectangleをUserControlのサイズに合わせて配置 -->
-    <Rectangle
+    <Canvas>
+        <Rectangle
         x:Name="RectContent"
         Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=UserControl}}"
                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                   Fill="{Binding Background, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                   Fill="{Binding Background, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                         MouseEnter="OnMouseEnter"
+
+            Stroke="Black" StrokeThickness="3"
+            >
+            <Rectangle.StrokeDashArray>
+                <!-- ダッシュの間隔: 数値が大きいほど間隔が広くなります -->
+                <DoubleCollection>2,1</DoubleCollection>
+            </Rectangle.StrokeDashArray>
+
+        </Rectangle>
+        <!-- 左上 -->
+        <Rectangle x:Name="LeftTop" 
+                   Fill="Aqua" 
+                   Width="{StaticResource CornerSize}"
+                   Height="{StaticResource CornerSize}"
+                   Canvas.Left="{StaticResource CornerOffset}" 
+                   Canvas.Top="{StaticResource CornerOffset}"
+                   MouseLeftButtonDown="ToolBoxMouseDown"
+                   MouseLeftButtonUp="ToolBoxMouseUp"
+                   MouseLeave="ToolBoxMouseLeave"
+                   >
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Cursor" Value="SizeNWSE"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="SizeNWSE"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
+
+        <!-- 右上 -->
+        <Rectangle x:Name="RightTop" 
+                   Fill="Aqua" 
+                   Width="{StaticResource CornerSize}"
+                   Height="{StaticResource CornerSize}" 
+                   Canvas.Right="{StaticResource CornerOffset}" 
+                   Canvas.Top="{StaticResource CornerOffset}"
+                   MouseLeftButtonDown="ToolBoxMouseDown"
+                   MouseLeftButtonUp="ToolBoxMouseUp"
+                   MouseLeave="ToolBoxMouseLeave"
+                   >
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Cursor" Value="SizeNWSE"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="SizeNESW"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
+
+        <!-- 左下 -->
+        <Rectangle x:Name="LeftBottom" 
+                   Fill="Aqua" 
+                   Width="{StaticResource CornerSize}" 
+                   Height="{StaticResource CornerSize}" 
+                   Canvas.Left="{StaticResource CornerOffset}" 
+                   Canvas.Bottom="{StaticResource CornerOffset}"
+                   MouseLeftButtonDown="ToolBoxMouseDown"
+                   MouseLeftButtonUp="ToolBoxMouseUp"
+                   MouseLeave="ToolBoxMouseLeave"
+                   >
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Cursor" Value="SizeNWSE"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="SizeNESW"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
+
+        <!-- 右下 -->
+        <Rectangle x:Name="RightBottom" Fill="Aqua" 
+                   Width="{StaticResource CornerSize}" 
+                   Height="{StaticResource CornerSize}" 
+                   Canvas.Right="{StaticResource CornerOffset}" 
+                   Canvas.Bottom="{StaticResource CornerOffset}"
+                   MouseLeftButtonDown="ToolBoxMouseDown"
+                   MouseLeftButtonUp="ToolBoxMouseUp"
+                   MouseLeave="ToolBoxMouseLeave"
+                   >
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Cursor" Value="SizeNWSE"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="SizeNWSE"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
+        <!-- 中央に配置するテキスト -->
+        <TextBlock x:Name="CenteredText"
+                   Text="Centered Text"
+                   FontSize="24"
+                   Foreground="Black"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+    </Canvas>
 </UserControl>

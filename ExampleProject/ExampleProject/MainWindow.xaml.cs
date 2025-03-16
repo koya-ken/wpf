@@ -15,8 +15,10 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        Child1 = new EditableRectangle { Width = 200, Height = 100, Background = Brushes.Red };
-        MainCanvas.Children.Add(Child1);
+        var ch = new EditableRectangle { Width = 200, Height = 100, Background = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0)) };
+        MainCanvas.Children.Add(ch);
+        ch = new EditableRectangle { Width = 200, Height = 100, Background = new SolidColorBrush(Color.FromArgb(128, 0, 255, 255)) };
+        MainCanvas.Children.Add(ch);
         //Start();
     }
 
