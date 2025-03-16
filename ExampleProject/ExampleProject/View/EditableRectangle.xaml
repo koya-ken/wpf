@@ -131,7 +131,8 @@
         </Rectangle>
         <!-- 中央に配置するテキスト -->
         <TextBlock x:Name="CenteredText"
-                   Text="Centered Text"
+                 Text="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                   d:Text="This is Design Text"
                    FontSize="24"
                    Foreground="Black"
                    HorizontalAlignment="Center"

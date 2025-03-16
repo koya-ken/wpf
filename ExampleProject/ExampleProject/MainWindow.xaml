@@ -22,11 +22,13 @@
         </Menu>
         <Button Click="Button_Click" DockPanel.Dock="Left"  Content="{x:Static res:Strings.ButtonText}" />
         <Button Click="Button_Click" DockPanel.Dock="Left"  Content="{x:Static res:Strings.ButtonText}" />
-        <Grid>
+        <Viewbox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Canvas ClipToBounds="True"  x:Name="MainCanvas" Background="Lime" Grid.Column="0"></Canvas>
+                <Canvas ClipToBounds="True"  x:Name="MainCanvas" Background="Lime" Width="500" Height="600" Grid.Column="0"></Canvas>
         </Grid>
+        </Viewbox>
     </DockPanel>
 </Window>

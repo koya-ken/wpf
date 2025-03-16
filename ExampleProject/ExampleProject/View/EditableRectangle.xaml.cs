@@ -53,6 +53,8 @@ namespace ExampleProject.View
         public double _x;
         [ObservableProperty]
         public double _y;
+        [ObservableProperty]
+        public string? _text = "Default ";
 
         private double StartX;
         private double StartY;
