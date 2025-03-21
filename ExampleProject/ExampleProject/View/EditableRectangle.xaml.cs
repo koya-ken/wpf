@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -97,7 +96,6 @@ namespace ExampleProject.View
 
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
-            Debug.WriteLine($"OnMouseMove {sender} {Mouse.Captured}");
             RectGrabState?.GrabAction(Mouse.Captured, e, (state) =>
             {
                 e.Handled = true;
@@ -126,7 +124,6 @@ namespace ExampleProject.View
                     X = Math.Min(_x, (state.StartX + state.StartWidth - minWidth));
                     var _w = (state.StartX - X) + state.StartWidth;
                     Width = Math.Max(_w, minWidth);
-                    Debug.WriteLine($"GrabAction {(state.StartX, X)}");
                 }
                 else
                 {
@@ -151,7 +148,6 @@ namespace ExampleProject.View
 
         private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Debug.WriteLine($"OnMouseDown {sender}");
             if (RectGrabState?.IsGrab(sender, e) ?? false)
             {
                 return;
@@ -173,7 +169,6 @@ namespace ExampleProject.View
 
         private void OnMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Debug.WriteLine("OnMouseUp");
             if (RectGrabState?.IsLeave(sender) ?? false)
             {
                 e.Handled = true;
@@ -194,7 +189,6 @@ namespace ExampleProject.View
 
         private void ToolBoxMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Debug.WriteLine($"ToolBoxMouseDown {sender}");
             if (ToolGrabState?.IsGrab(sender, e) ?? false)
             {
                 return;
@@ -225,10 +219,8 @@ namespace ExampleProject.View
                     yEditable = false;
                     break;
                 case null:
-                    Console.WriteLine("No name assigned");
                     break;
                 default:
-                    Console.WriteLine($"Mouse entered: {name}");
                     break;
             }
             e.Handled = true;
@@ -248,7 +240,6 @@ namespace ExampleProject.View
 
         private void ToolBoxMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Debug.WriteLine("ToolBoxMouseUp");
             if (ToolGrabState?.IsLeave(sender) ?? false)
             {
                 e.Handled = true;
@@ -259,7 +250,6 @@ namespace ExampleProject.View
 
         private void ToolBoxMouseLeave(object sender, MouseEventArgs e)
         {
-            Debug.WriteLine("ToolBoxMouseLeave");
             //if (ToolGrabState?.IsLeave(sender) ?? false)
             //{
             //    e.Handled = true;

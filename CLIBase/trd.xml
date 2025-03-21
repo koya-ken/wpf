@@ -1,0 +1,6 @@
+<linker>
+  <assembly fullname="CLIBase">
+    <type fullname="CLIBase.TestCommand" preseve="all" />
+  </assembly>
+
+</linker>

@@ -10,7 +10,6 @@ namespace ExampleProject;
 /// </summary>
 public partial class MainWindow : Window
 {
-    EditableRectangle Child1;
     public MainWindow()
     {
         InitializeComponent();
@@ -29,17 +28,12 @@ public partial class MainWindow : Window
             Text = "Rect2",
             Background = new SolidColorBrush(Color.FromArgb(128, 0, 255, 255))
         });
-        //Start();
-    }
 
-    async Task Start()
-    {
-        for (int i = 0; i < 100; i++)
+        var obj = new
         {
+            DoSomething = new Action(() => Console.WriteLine("Hello from anonymous class!"))
+        };
 
-            await Task.Delay(TimeSpan.FromMilliseconds(33));
-            Child1.X += 2;
-        }
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
